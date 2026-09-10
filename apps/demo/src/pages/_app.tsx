@@ -13,7 +13,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
-import { Connect, ErrorDialogProvider } from "../components";
+import { Connect } from "../components/connect";
+import { ErrorDialogProvider } from "../components/error-dialog";
 import "../styles/globals.css";
 import { Icons } from "../utils";
 import { register as registerIcons } from "../utils/icons";
@@ -45,6 +46,11 @@ const ROUTES = [
         url: "/shell",
         icon: Icons.WindowConsole,
         name: "Interactive Shell",
+    },
+    {
+        url: "/forward",
+        icon: Icons.ArrowClockwise,
+        name: "Forward",
     },
     {
         url: "/scrcpy",

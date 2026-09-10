@@ -28,6 +28,7 @@ function pipe(value, ...callbacks) {
 module.exports = pipe(
     {
         basePath,
+        trailingSlash: true,
         pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
         reactStrictMode: false,
         productionBrowserSourceMaps: true,
