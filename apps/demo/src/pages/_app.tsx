@@ -53,6 +53,11 @@ const ROUTES = [
         name: "Forward",
     },
     {
+        url: "/rdp",
+        icon: Icons.PhoneLaptop,
+        name: "RDP Desktop",
+    },
+    {
         url: "/scrcpy",
         icon: Icons.PhoneLaptop,
         name: "Scrcpy",

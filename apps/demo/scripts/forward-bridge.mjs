@@ -54,6 +54,7 @@ function startListener(port) {
 
         const connectionId = nextConnectionId++;
         connections.set(connectionId, socket);
+        socket.pause();
         sendJson({ type: "connection", connectionId, port });
         socket.on("data", (data) => sendData(connectionId, data));
         socket.on("close", () => {
@@ -73,6 +74,8 @@ function startListener(port) {
 function receiveMessage(message) {
     if (message.type === "listen" && Number.isInteger(message.port) && message.port > 0 && message.port < 65536) {
         startListener(message.port);
+    } else if (message.type === "open") {
+        connections.get(message.connectionId)?.resume();
     } else if (message.type === "close") {
         closeConnection(message.connectionId);
     }
